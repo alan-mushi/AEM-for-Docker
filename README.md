@@ -61,4 +61,4 @@ For a rollback scenario checkout the `env/{author,publish}_reuse.env` files (the
 For my current internship, at Atos Open Source Center, I had to put AEM on Docker.
 It turns out it's not as easy as it seems because AEM is not meant for it.
 
-Thanks to Lee Namba and Tiago Pirez Gomes for allowing me to share this implementation.
+Thanks to Lee Namba and Tiago Pires Gomes for allowing me to share this implementation.
