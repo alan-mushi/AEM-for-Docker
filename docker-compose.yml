@@ -1,0 +1,46 @@
+java7:
+    # Force build
+    build: images/java7/
+    entrypoint: /bin/true
+
+author:
+    build: images/author/
+    links:
+        - publish:src_publish1
+    volumes_from:
+        - authordata
+    volumes:
+        - volumes/aem-packages/:/pkgs/:ro
+        - volumes/signals/author/:/signals
+    ports:
+        - 4502:4502
+    env_file:
+        - env/author_regular_start.env
+        #- env/author_reuse.env
+
+publish:
+    build: images/publish/
+    volumes_from:
+        - publishdata
+    volumes:
+        - volumes/aem-packages/:/pkgs/:ro
+        - volumes/signals/publish/:/signals
+    ports:
+        - 4503:4503
+    env_file:
+        - env/publish_regular_start.env
+        #- env/publish_reuse.env
+
+publishdata:
+    image: centos:6.6
+    entrypoint: /bin/true
+    volumes:
+        - volumes/aem-publish-segmentstores/run/:/opt/aem/publish/crx-quickstart/repository/segmentstore/
+        #- volumes/aem-publish-segmentstores/backup/:/opt/aem/publish/crx-quickstart/repository/segmentstore/
+
+authordata:
+    image: centos:6.6
+    entrypoint: /bin/true
+    volumes:
+        - volumes/aem-author-segmentstores/run/:/opt/aem/author/crx-quickstart/repository/segmentstore/
+        #- volumes/aem-author-segmentstores/backup/:/opt/aem/author/crx-quickstart/repository/segmentstore/
