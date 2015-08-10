@@ -1,4 +1,4 @@
-# AEM on Docker
+# AEM for Docker
 
 A fully working, pretty customizable AEM (Author & Publish) integration for Docker.
 Other versions exits but this is a demo-free with automatic configuration at startup Docker images.
